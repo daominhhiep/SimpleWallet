@@ -11,7 +11,6 @@ function App() {
   const [currentNetwork, setCurrentNetwork] = useState('');
 
 
-
   useEffect(() => {
     const storedAccount = localStorage.getItem('connectedAccount');
     if (storedAccount) {
@@ -25,6 +24,7 @@ function App() {
         // Get the current network
         const network = await web3.eth.net.getNetwork(networkId);
         setCurrentNetwork(network);
+
         if (deployedNetwork) {
           const contract = new web3.eth.Contract(
               SimpleWallet.abi,
